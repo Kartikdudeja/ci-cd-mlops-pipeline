@@ -154,6 +154,12 @@ The **CI pipeline** (`.github/workflows/mlops_pipeline.yaml`), this workflow aut
   * Builds and pushes the Docker image:
     `docker.io/<DOCKERHUB_USERNAME_TAG>/comment-sentiment-analysis:latest`
 
+#### itHub Secrets required
+
+* `DOCKERHUB_USERNAME` → your Docker Hub username
+* `DOCKERHUB_PASSWORD` → a Docker Hub **Access Token** (recommended) from Docker Hub Security settings
+* `DOCKERHUB_USERNAME_TAG` → your Docker Hub username for tagging the image.
+
 ### 6. Kubernetes Manifests
 
 The `k8s-manifests/` directory contains the YAML files required to deploy the service on Kubernetes:
