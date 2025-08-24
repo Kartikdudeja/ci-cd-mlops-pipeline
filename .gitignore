@@ -1,5 +1,5 @@
 mlflow.db
-
+mlruns/
 mlartifacts/
 
 *.log
