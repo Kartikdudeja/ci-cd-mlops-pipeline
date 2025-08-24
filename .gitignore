@@ -6,3 +6,6 @@ mlartifacts/
 *.pkl
 *.json
 *.png
+
+data/interim/*.csv
+data/raw/*.csv
