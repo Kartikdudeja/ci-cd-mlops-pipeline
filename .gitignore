@@ -3,9 +3,3 @@ mlruns/
 mlartifacts/
 
 *.log
-*.pkl
-*.json
-*.png
-
-data/interim/*.csv
-data/raw/*.csv
