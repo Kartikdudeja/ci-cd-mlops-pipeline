@@ -41,7 +41,7 @@ jobs:
       - name: App health check
         run: |
           RESPONSE=$(curl -s http://localhost:8080/)
-          if [ "$RESPONSE" != "Welcome to our flask api(base)" ]; then
+          if [ "$RESPONSE" != "Welcome to our flask api" ]; then
             echo "Health check failed, got '$RESPONSE'"
             exit 1
           fi          
