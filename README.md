@@ -21,7 +21,7 @@ This project simulates a **real-world, production-style MLOps setup**.
 ```mermaid
 flowchart LR
     A["Jupyter Notebook
-(Model Training)"] -->|Track Experiments| B[(MLflow)]
+(Model Training)"] -->|Track Experiments| B[MLflow]
     B -->|Best Params| C["Python Scripts
 + DVC Pipeline"]
     C --> D["Model Artifact (.pkl)"]
