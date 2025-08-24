@@ -9,8 +9,8 @@ The ML model predicts sentiment (positive/negative/neutral) for user comments. T
 3. **Pipeline Automation** → **DVC pipeline** created using Python scripts.
 4. **Model Serving** → Flask app wraps the trained model as a REST API.
 5. **Containerization** → Dockerfile builds model serving image.
-6. **Continuous Integration (CI)** → GitHub Actions builds, tests, and pushes the image to **DockerHub**.
-7. **Continuous Deployment (CD)** → ArgoCD deploys the application on a Kubernetes cluster.
+6. **Continuous Integration (CI)** → **GitHub Actions** builds, tests, and pushes the image to **DockerHub**.
+7. **Continuous Deployment (CD)** → **ArgoCD** deploys the application on a **Kubernetes** cluster.
 
 This project simulates a **real-world, production-style MLOps setup**.
 
@@ -20,22 +20,22 @@ This project simulates a **real-world, production-style MLOps setup**.
 
 ```mermaid
 flowchart LR
-    A[("Jupyter Notebook
-(Model Training)")] -->|Track Experiments| B[(MLflow)]
-    B -->|Best Params| C[("Python Scripts
-+ DVC Pipeline")]
-    C --> D[("Model Artifact (.pkl)")]
-    D --> E[("Flask App
-(Model Serving)")]
-    E --> F[("Dockerize Flask App")]
-    F --> G[("GitHub Actions
-(CI Pipeline)")]
-    G -->|Build & Push| H[(DockerHub)]
-    H --> I[("Kubernetes Manifests
-(YAMLs)")]
-    I --> J[("ArgoCD
-(GitOps Deployment)")]
-    J --> K[("Deployment on Kubernetes")]
+    A["Jupyter Notebook
+(Model Training)"] -->|Track Experiments| B[(MLflow)]
+    B -->|Best Params| C["Python Scripts
++ DVC Pipeline"]
+    C --> D["Model Artifact (.pkl)"]
+    D --> E["Flask App
+(Model Serving)"]
+    E --> F["Dockerize Flask App"]
+    F --> G["GitHub Actions
+(CI Pipeline)"]
+    G -->|Build & Push| H[DockerHub]
+    H --> I["Kubernetes Manifests
+(YAMLs)"]
+    I --> J["ArgoCD
+(GitOps Deployment)"]
+    J --> K["Deployment on Kubernetes"]
 ```
 
 ---
@@ -82,13 +82,14 @@ flowchart LR
 
 ### 1. Jupyter Notebook (Model Training)
 
-The initial training and experimentation is done in **`notebooks/sentiment_analysis.ipynb`**:
-
-* Load dataset (comments + labels).
-* Preprocess text (tokenization, stopword removal, embeddings).
-* Train models (Logistic Regression, LSTM, etc.).
-* Log experiments and metrics to **MLflow**.
-* Select best hyperparameters.
+1. **Preprocessing & EDA** → Cleans the dataset and explores class distribution, word usage, and comment length patterns.
+2. **Baseline Model** → Trains a simple Random Forest baseline to establish benchmark performance.
+3. **BoW & TF-IDF** → Compares Bag of Words and TF-IDF vectorization for text representation.
+4. **TF-IDF Max Features** → Evaluates dimensionality reduction by limiting TF-IDF features.
+5. **Handling Imbalance Data** → Runs experiments with multiple imbalance techniques (`class_weights`, `oversampling`, `ADASYN`, `undersampling`, `SMOTE+ENN`) to evaluate impact on model performance.
+6. **XGBoost with Hyperparameter Tuning** → Tunes XGBoost parameters to improve classification performance.
+7. **LightGBM with Hyperparameter Tuning** → Experiments with LightGBM as a faster tuned model alternative.
+8. **Stacking** → Combines multiple models using stacking for best overall performance.
 
 #### Running MLflow
 
