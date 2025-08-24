@@ -217,7 +217,7 @@ argocd repo add <your-github-repo-url> \
   --password <github-token>
 ```
 
-> `<github-token>` is your GitHub **Personal Access Token (PAT)**.
+> `<github-token>` is your GitHub **Personal Access Token (PAT)**.  
 > Ensure it has at least **repo scope** if your repository is private.
 
 #### ArgoCD Application
@@ -239,6 +239,7 @@ argocd app sync comment-sentiment-analysis
 ```
 
 This setup completes the MLOps pipeline by bridging **CI (GitHub Actions)** with **CD (Argo CD)**, ensuring the ML service is always up-to-date in Kubernetes.
+
 ---
 
 #### Acknowledgements
