@@ -9,9 +9,10 @@ https://github.com/entbappy/End-to-end-Youtube-Sentiment
 [x] src py files & dvc 
 [x] flask app
 [x] dockerfile
-[] ci - github action
-[] k8s manifest
+[x] ci - github action
+[x] k8s manifest
 [] cd - argocd
+[] readme file
 
 ---
 
