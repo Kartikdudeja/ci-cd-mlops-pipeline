@@ -53,6 +53,9 @@ jobs:
 
     steps:
 
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
       - name: Login to Dockerhub
         if: success()
         uses: docker/login-action@v3
@@ -66,4 +69,4 @@ jobs:
         with:
           context: .
           push: true
-          tags: docker.io/${{ secrets.DOCKERHUB_USERNAME_TAG }}/express-hello:latest
+          tags: docker.io/${{ secrets.DOCKERHUB_USERNAME_TAG }}/comment-sentiment-analysis:latest
